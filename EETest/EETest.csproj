@@ -5,13 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</ProjectGuid>
+    <ProjectGuid>{C2C68668-DD29-4194-8EC1-242E667C11D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EELib</RootNamespace>
-    <AssemblyName>EELib</AssemblyName>
+    <RootNamespace>EETest</RootNamespace>
+    <AssemblyName>EETest</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,16 +32,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\libs\NUnit-2.6.2\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmlParser.cs" />
-    <Compile Include="ContentExtractor.cs" />
-    <Compile Include="ExtractorResutObject.cs" />
-    <Compile Include="BodyExtractor.cs" />
+    <Compile Include="base64decodertest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EELib\EELib.csproj">
+      <Project>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</Project>
+      <Name>EELib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ADODB">
