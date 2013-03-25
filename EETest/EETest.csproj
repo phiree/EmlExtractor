@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="base64decodertest.cs" />
+    <Compile Include="ContentExtractorTest.cs" />
+    <Compile Include="EmlParsertest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{6CA43240-10A2-4CCB-A7E8-D74EB23E0E91}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EELib\EELib.csproj">
       <Project>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</Project>
       <Name>EELib</Name>

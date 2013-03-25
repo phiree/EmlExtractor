@@ -12,6 +12,7 @@
     <AssemblyName>EELib</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,8 +39,10 @@
   <ItemGroup>
     <Compile Include="EmlParser.cs" />
     <Compile Include="ContentExtractor.cs" />
+    <Compile Include="ExtractorResultPersistent.cs" />
     <Compile Include="ExtractorResutObject.cs" />
     <Compile Include="BodyExtractor.cs" />
+    <Compile Include="ExtractorRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

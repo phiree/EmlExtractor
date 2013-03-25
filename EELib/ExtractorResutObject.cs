@@ -9,7 +9,7 @@ namespace EELib
     /// </summary>
     public class ExtractorResutObject
     {
-        public enumPlatFrom From { get; set; }
+        public enumPlatFrom PlatFrom { get; set; }
         /// <summary>
         /// 询谈时间
         /// </summary>

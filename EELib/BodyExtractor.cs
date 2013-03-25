@@ -15,39 +15,36 @@ namespace EELib
         public BodyExtractor(ExtractorResutObject o, string mailBody, enumPlatFrom platform)
             : base()
         {
+            mailBody=Regex.Replace(Regex.Replace(mailBody, @"<[^>]*>", string.Empty),@"\s{3,}",string.Empty);//replace html tags and blank lines
+
             this.mailBody = mailBody;
             if (o == null)
                 o = new ExtractorResutObject();
             resultObject = o;
             switch (platform)
             {
-                case enumPlatFrom.Alibaba: break;
-                case enumPlatFrom.MadeInChina: break;
+                case enumPlatFrom.Alibaba:
+                    extractRule = new ExtractorRuleAli(mailBody);
+                    break;
+                case enumPlatFrom.MadeInChina:
+                    extractRule = new ExtractorRuleMic(mailBody);
+                    break;
 
             }
 
         }
-        private string regexProductName;
-        private string regexCustomName;
-        private string regexCustomCountry;
-        private string regexCustomEmail;
+        private ExtractorRule extractRule;
         public  void Extract()
         {
-            resultObject.CustomCountry = ExtractByRegex(regexCustomCountry);
-            resultObject.CustomEmail = ExtractByRegex(regexCustomEmail);
-            resultObject.CustomName = ExtractByRegex(regexCustomName);
-            resultObject.ProductName = ExtractByRegex(regexProductName);
+            //resultObject.CustomCountry = ExtractByRegex(regexCustomCountry);
+            //resultObject.CustomEmail = ExtractByRegex(regexCustomEmail);
+            //resultObject.CustomName = ExtractByRegex(regexCustomName);
+           // resultObject.ProductName = ExtractByRegex(extractRule.regexProductName);
+            resultObject.ProductName = extractRule.ExtractProductName();
+            resultObject.CustomCountry = extractRule.ExtractCustomCountry();
+            resultObject.CustomEmail = extractRule.ExtractCustomEmail();
+            resultObject.CustomName = extractRule.ExtractCustomName();
         }
-        private string ExtractByRegex(string regex)
-        {
-            string result = string.Empty;
-            Match match = Regex.Match(mailBody, regex, RegexOptions.IgnoreCase);
-            if (match.Success) { result = match.Value; }
-            else
-            {
-                Console.WriteLine("Not Match:" + regex);
-            }
-            return result;
-        }
+      
     }
 }
