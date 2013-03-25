@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C2C68668-DD29-4194-8EC1-242E667C11D0}</ProjectGuid>
+    <ProjectGuid>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EETest</RootNamespace>
-    <AssemblyName>EETest</AssemblyName>
+    <RootNamespace>EELib</RootNamespace>
+    <AssemblyName>EELib</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,31 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\libs\NUnit-2.6.2\bin\framework\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentExtractorTest.cs" />
-    <Compile Include="EmlParsertest.cs" />
+    <Compile Include="EmlParser.cs" />
+    <Compile Include="ContentExtractor.cs" />
+    <Compile Include="ExtractorResultPersistent.cs" />
+    <Compile Include="BodyExtractor.cs" />
+    <Compile Include="ExtractorRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
-      <Project>{6CA43240-10A2-4CCB-A7E8-D74EB23E0E91}</Project>
-      <Name>CommonLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EELib\EEBiz.csproj">
-      <Project>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</Project>
-      <Name>EEBiz</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EEModel\EEModel.csproj">
-      <Project>{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}</Project>
-      <Name>EEModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ADODB">
@@ -77,6 +63,16 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EEModel\EEModel.csproj">
+      <Project>{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}</Project>
+      <Name>EEModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EEPersistant\EEPersistant.csproj">
+      <Project>{2F38859A-59C4-44BF-85F1-BEB5B78C0E2D}</Project>
+      <Name>EEPersistant</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

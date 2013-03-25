@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EELib
+namespace EEModel
 {
     /// <summary>
     /// 提取内容的对象

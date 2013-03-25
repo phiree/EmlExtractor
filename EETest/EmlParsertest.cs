@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using System.Text;
 using NUnit.Framework;
-using EELib;
+using EEBiz;
 using System.IO;
 namespace EETest
 {

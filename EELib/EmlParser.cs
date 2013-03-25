@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EELib
+namespace EEBiz
 {
     public class EmlParser
     {

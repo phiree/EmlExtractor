@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-namespace EELib
+namespace EEBiz
 {
     public interface ExtractorRule
     {

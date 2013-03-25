@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace EELib
+using EEModel;
+using EEPersistant;
+namespace EEBiz
 {
     /// <summary>
     /// 提取需要的内容.
     /// </summary>
     public class ContentExtractor
     {
-       
+        IPersistent persistent = new SqlitePersistent();
         public ExtractorResutObject ResultObject { get { return resultObject; } }
         private string emlFilePath;
         private ExtractorResutObject resultObject;
@@ -34,6 +35,7 @@ namespace EELib
             }
             resultObject.PlatFrom = plateform;
             new BodyExtractor(resultObject, emlMsg.HTMLBody, plateform).Extract();
+            persistent.Save(resultObject);
         }
        
     }
