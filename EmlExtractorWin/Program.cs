@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
 
+using System.Windows.Forms;
+using log4net;
 namespace EmlExtractorWin
 {
     static class Program
@@ -15,7 +15,13 @@ namespace EmlExtractorWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            LogConfig();
+            Application.Run(new Main());
+        }
+         static void LogConfig()
+        {
+            System.IO.FileInfo finfo = new System.IO.FileInfo(Environment.CurrentDirectory + "\\config\\log4net.config");
+            log4net.Config.XmlConfigurator.Configure(finfo);
         }
     }
 }

@@ -11,16 +11,16 @@ namespace EEBiz
     /// </summary>
     public class BodyExtractor
     {
-        private ExtractorResutObject resultObject;
+        private ExtractorResultObject resultObject;
         private string mailBody;
-        public BodyExtractor(ExtractorResutObject o, string mailBody, enumPlatFrom platform)
+        public BodyExtractor(ExtractorResultObject o, string mailBody, enumPlatFrom platform)
             : base()
         {
             mailBody=Regex.Replace(Regex.Replace(mailBody, @"<[^>]*>", string.Empty),@"\s{3,}",string.Empty);//replace html tags and blank lines
 
             this.mailBody = mailBody;
             if (o == null)
-                o = new ExtractorResutObject();
+                o = new ExtractorResultObject();
             resultObject = o;
             switch (platform)
             {

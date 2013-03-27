@@ -10,13 +10,16 @@ namespace EEBiz
     /// </summary>
     public class ContentExtractor
     {
-        IPersistent persistent = new SqlitePersistent();
-        public ExtractorResutObject ResultObject { get { return resultObject; } }
+      
+        public ExtractorResultObject ResultObject { get { return resultObject; } }
         private string emlFilePath;
-        private ExtractorResutObject resultObject;
+        private ExtractorResultObject resultObject;
+        public ContentExtractor()
+        { }
+        
         public ContentExtractor(string emlPath)
         {
-            resultObject = new ExtractorResutObject();
+            resultObject = new ExtractorResultObject();
             emlFilePath = emlPath;
         }
         /// <summary>
@@ -24,19 +27,25 @@ namespace EEBiz
         /// </summary>
         public void ExtractInfo()
         {
-            CDO.Message emlMsg = EmlParser.Parse(emlFilePath);
+            IEmlParser parser = new CDOParser();
+
+            EEEmailMessage emlMsg = parser.Parse(emlFilePath);
             resultObject.InquiryTime = emlMsg.ReceivedTime;
-            
+            resultObject.EmailTitle = emlMsg.Subject;
             resultObject.ClerkName = emlMsg.To.Split(',')[0];//取第一个邮箱
-            enumPlatFrom plateform = enumPlatFrom.MadeInChina;
+            enumPlatFrom platfrom = enumPlatFrom.MadeInChina;
             if (emlMsg.From.ToLower().Contains("alibaba"))
             {
-                plateform = enumPlatFrom.Alibaba;
+                platfrom = enumPlatFrom.Alibaba;
             }
-            resultObject.PlatFrom = plateform;
-            new BodyExtractor(resultObject, emlMsg.HTMLBody, plateform).Extract();
-            persistent.Save(resultObject);
+            resultObject.PlatFrom = platfrom;
+            resultObject.CreationTime = DateTime.Now;
+            
+            new BodyExtractor(resultObject, emlMsg.Body, platfrom).Extract();
+            //EELog.EELogger.Debug("开始保存");
+           
         }
+
        
     }
 

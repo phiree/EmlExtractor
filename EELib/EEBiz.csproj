@@ -8,9 +8,9 @@
     <ProjectGuid>{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EELib</RootNamespace>
-    <AssemblyName>EELib</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <RootNamespace>EEBiz</RootNamespace>
+    <AssemblyName>EEBiz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -32,16 +32,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\libs\log4net-1.2.11\bin\net\2.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MIMER">
+      <HintPath>..\..\libs\MIMER_Binaries0.7.0\MIMER.dll</HintPath>
+    </Reference>
+    <Reference Include="Sasa">
+      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.dll</HintPath>
+    </Reference>
+    <Reference Include="Sasa.Mime">
+      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.Mime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sasa.Net">
+      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EELog.cs" />
     <Compile Include="EmlParser.cs" />
     <Compile Include="ContentExtractor.cs" />
     <Compile Include="ExtractorResultPersistent.cs" />
     <Compile Include="BodyExtractor.cs" />
     <Compile Include="ExtractorRule.cs" />
+    <Compile Include="ExtractService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

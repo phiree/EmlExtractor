@@ -22,7 +22,7 @@ namespace EEBiz
         public  string ExtractProductName()
         {
 
-            string regex = @"(?<=I'm interested in your product\(s\)).+?(?=\n)";
+            string regex = @"(?<=I'm interested in your product\(s\)).+?(?=\n?1\.)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
             return m.Value;

@@ -11,11 +11,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDownloader", "MailDownl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{6CA43240-10A2-4CCB-A7E8-D74EB23E0E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmlExtractorWin", "EmlExtractorWin\EmlExtractorWin.csproj", "{D4838D2A-8511-44A3-B946-6CC80E5BD82B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEWIn", "EmlExtractorWin\EEWIn.csproj", "{D4838D2A-8511-44A3-B946-6CC80E5BD82B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEPersistant", "EEPersistant\EEPersistant.csproj", "{2F38859A-59C4-44BF-85F1-BEB5B78C0E2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEModel", "EEModel\EEModel.csproj", "{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EEWeb", "EEWeb\", "{526167A8-6F3A-418E-9BBC-8C8036F59EFA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		ProjectReferences = "{6CA43240-10A2-4CCB-A7E8-D74EB23E0E91}|CommonLibrary.dll;{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}|EEBiz.dll;{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}|EEModel.dll;{2F38859A-59C4-44BF-85F1-BEB5B78C0E2D}|EEPersistant.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/EEWeb"
+		Debug.AspNetCompiler.PhysicalPath = "EEWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\EEWeb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/EEWeb"
+		Release.AspNetCompiler.PhysicalPath = "EEWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\EEWeb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "11605"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E96FAB12-B93B-4963-A0C1-BEEDF4981E54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +130,16 @@ Global
 		{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}.Release|x86.ActiveCfg = Release|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{526167A8-6F3A-418E-9BBC-8C8036F59EFA}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
