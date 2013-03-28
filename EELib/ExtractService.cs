@@ -14,8 +14,10 @@ namespace EEBiz
         {
             DirectoryInfo di = new DirectoryInfo(folderPath);
             IList<ExtractorResultObject> resultList = new List<ExtractorResultObject>();
-            foreach (FileInfo fi in di.GetFiles("*.eml"))
+            string[] fileNames = Directory.GetFiles(folderPath, "*.eml", SearchOption.AllDirectories);
+            foreach (string fileName in fileNames)
             {
+                FileInfo fi = new FileInfo(fileName);
                 ContentExtractor ce = new ContentExtractor(fi.FullName);
                 ce.ExtractInfo();
                 resultList.Add(ce.ResultObject);

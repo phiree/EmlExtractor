@@ -11,6 +11,8 @@ namespace EEModel
     {
         //对应邮件的标题
         public string EmailTitle { get; set; }
+        //邮件文件名称
+        public string EmailFileName { get; set; }
         //该记录内容的hashcode,用于判断记录是否已经导入.
      //   public int ItemHashcode { get; set; }
         public enumPlatFrom PlatFrom { get; set; }

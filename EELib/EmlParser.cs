@@ -24,30 +24,53 @@ namespace EEBiz
 
         public EEEmailMessage Parse(string emlFileName)
         {
-            throw new NotImplementedException();
-            //System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
-            //CDO.Message msg = new CDO.MessageClass();
-            //ADODB.Stream stream = new ADODB.StreamClass();
+            EEEmailMessage eeemsg = new EEEmailMessage();
+            //throw new NotImplementedException();
+            /*    EMLReaer
+            FileStream fs = File.Open(emlFileName, FileMode.Open, FileAccess.ReadWrite);
+            EMLReader reader = new EMLReader(fs);
 
-            //stream.Open(Type.Missing, ADODB.ConnectModeEnum.adModeUnknown, 
-            //    ADODB.StreamOpenOptionsEnum.adOpenStreamUnspecified, 
-            //    String.Empty, String.Empty);
-            //stream.LoadFromFile(emlFileName);
-            //stream.Flush();
-            //msg.DataSource.OpenObject(stream, "_Stream");
-            //msg.DataSource.Save();
-            //stream.Close();
-            //EEEmailMessage em = new EEEmailMessage();
-            //em.Body = msg.HTMLBody;
-            //em.Subject = msg.Subject;
-            //em.From = msg.From;
-            //em.ReceivedTime = msg.ReceivedTime;
-            //em.To = msg.To;
-            
-            //return em;
+          
+            eeemsg.Body = reader.Body;
+            eeemsg.From = reader.From;
+            eeemsg.ReceivedTime = reader.Date;
+            eeemsg.Subject = reader.Subject;
+            eeemsg.To = reader.To;
+            return eeemsg;*/
+
+            /*
+            EAGetMail.Mail eamail = new EAGetMail.Mail("TryIt");
+            eamail.Load(emlFileName, true);
+            eeemsg.Body = eamail.HtmlBody;
+            eeemsg.From = eamail.From.Address;
+            eeemsg.ReceivedTime = eamail.ReceivedDate;
+            eeemsg.Subject = eamail.Subject;
+            eeemsg.To = eamail.To[0].Address;
+            // reader.Date
+            */
+            CDO.Message cdomsg = new CDO.MessageClass();
+            ADODB.Stream stream = new ADODB.StreamClass();
+
+            stream.Open(Type.Missing, ADODB.ConnectModeEnum.adModeUnknown,
+                ADODB.StreamOpenOptionsEnum.adOpenStreamUnspecified,
+                String.Empty, String.Empty);
+            stream.LoadFromFile(emlFileName);
+            stream.Flush();
+            cdomsg.DataSource.OpenObject(stream, "_Stream");
+            cdomsg.DataSource.Save();
+            stream.Close();
+
+            eeemsg.Body = cdomsg.HTMLBody;
+            eeemsg.Subject = cdomsg.Subject;
+            eeemsg.From = cdomsg.From;
+            eeemsg.ReceivedTime = cdomsg.ReceivedTime;
+            eeemsg.To = cdomsg.To;
+
+            return eeemsg;
         }
 
     }
+    /*
     public class Sasaparser : IEmlParser
     {
         public List<string> HeadersToPrint = new List<string>();
@@ -101,4 +124,6 @@ namespace EEBiz
             return true;
         }
     }
+     * 
+     * */
 }

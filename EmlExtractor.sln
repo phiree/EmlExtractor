@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEModel", "EEModel\EEModel.
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EEWeb", "EEWeb\", "{526167A8-6F3A-418E-9BBC-8C8036F59EFA}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{6CA43240-10A2-4CCB-A7E8-D74EB23E0E91}|CommonLibrary.dll;{C7669D2D-086E-46FB-B67A-6AB7D1F8690E}|EEBiz.dll;{B70FA18B-0C21-4EF7-ACAE-ABD3E50B955D}|EEModel.dll;{2F38859A-59C4-44BF-85F1-BEB5B78C0E2D}|EEPersistant.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/EEWeb"
 		Debug.AspNetCompiler.PhysicalPath = "EEWeb\"

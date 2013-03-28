@@ -35,18 +35,6 @@
     <Reference Include="log4net">
       <HintPath>..\..\libs\log4net-1.2.11\bin\net\2.0\release\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MIMER">
-      <HintPath>..\..\libs\MIMER_Binaries0.7.0\MIMER.dll</HintPath>
-    </Reference>
-    <Reference Include="Sasa">
-      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.dll</HintPath>
-    </Reference>
-    <Reference Include="Sasa.Mime">
-      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.Mime.dll</HintPath>
-    </Reference>
-    <Reference Include="Sasa.Net">
-      <HintPath>..\..\libs\sasa\0.9.4-rc2\Sasa.Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,6 +43,7 @@
     <Compile Include="EELog.cs" />
     <Compile Include="EmlParser.cs" />
     <Compile Include="ContentExtractor.cs" />
+    <Compile Include="EMLReader.cs" />
     <Compile Include="ExtractorResultPersistent.cs" />
     <Compile Include="BodyExtractor.cs" />
     <Compile Include="ExtractorRule.cs" />
@@ -69,7 +58,7 @@
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="CDO">
       <Guid>{CD000000-8B95-11D1-82DB-00C04FB1625D}</Guid>
@@ -78,7 +67,7 @@
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <ItemGroup>

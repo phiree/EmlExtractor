@@ -32,14 +32,14 @@ namespace EEPersistant
                     SQLiteParameter paramCreationTime = new SQLiteParameter();
                     SQLiteParameter paramEmailTitle = new SQLiteParameter();
                     SQLiteParameter paramItemHashcode = new SQLiteParameter();
-
+                     SQLiteParameter paramEmailFileName = new SQLiteParameter();
                     mycommand.CommandText = @"INSERT INTO [EEInquery] 
                                                         (ClerkName,ProductName,PlatFrom
                                                          ,CustomName,CustomEmail,InqueryTime
-                                                         ,CustomCountry,CreationTime,EmailTitle,ItemHashcode)
+                                                         ,CustomCountry,CreationTime,EmailTitle,ItemHashcode,EmailFileName)
                                                                     VALUES(?,?,?,?,
                                                                            ?,?,?,?
-                                                                            ,?,?)";
+                                                                            ,?,?,?)";
                     mycommand.Parameters.Add(paramClerkName);
                     mycommand.Parameters.Add(paramProductName);
                     mycommand.Parameters.Add(paramPlatForm);
@@ -52,6 +52,7 @@ namespace EEPersistant
                     mycommand.Parameters.Add(paramCreationTime);
                     mycommand.Parameters.Add(paramEmailTitle);
                     mycommand.Parameters.Add(paramItemHashcode);
+                    mycommand.Parameters.Add(paramEmailFileName);
                     for (int n = 0; n < resultObjectList.Count; n++)
                     {
                         paramCreationTime.Value = resultObjectList[n].CreationTime;
@@ -65,6 +66,7 @@ namespace EEPersistant
                         paramProductName.Value = resultObjectList[n].ProductName;
                         paramItemHashcode.Value = resultObjectList[n].GetHashCode();
                         paramEmailTitle.Value = resultObjectList[n].EmailTitle;
+                        paramEmailFileName.Value = resultObjectList[n].EmailFileName;
 
                         mycommand.ExecuteNonQuery();
                     }
@@ -150,6 +152,7 @@ namespace EEPersistant
                 {
                     EEModel.ExtractorResultObject oneResult = new EEModel.ExtractorResultObject();
                     oneResult.ClerkName = reader["ClerkName"].ToString();
+                    oneResult.EmailFileName = reader["EmailFileName"].ToString();
                     oneResult.CreationTime = DateTime.Now;
                     oneResult.CustomCountry = reader["CustomCountry"].ToString();
                     oneResult.CustomEmail = reader["CustomEmail"].ToString();

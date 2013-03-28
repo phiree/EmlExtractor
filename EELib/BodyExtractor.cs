@@ -16,7 +16,10 @@ namespace EEBiz
         public BodyExtractor(ExtractorResultObject o, string mailBody, enumPlatFrom platform)
             : base()
         {
-            mailBody=Regex.Replace(Regex.Replace(mailBody, @"<[^>]*>", string.Empty),@"\s{3,}",string.Empty);//replace html tags and blank lines
+            //
+            mailBody = Regex.Replace(mailBody,@"<br[/\s]?>", "%#%");
+            mailBody = Regex.Replace(mailBody, @"\s*<[^>]*>\s*", string.Empty);//replace html tags and blank lines
+          //  mailBody = Regex.Replace(mailBody, @"<[^>]*>", string.Empty);//replace html tags and blank lines
 
             this.mailBody = mailBody;
             if (o == null)

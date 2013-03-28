@@ -20,16 +20,16 @@ namespace EETest
             new EESetUp().SetUp();
             
             validateOneResult(@"E:\workspace\code\resources\7阿里有产品.eml",
-            "\"vivi@ntsmart.com\" <vivi@ntsmart.com>",
+            "vivi@ntsmart.com",
             "China (Mainland)",
             "nicci20121118@gmail.com",
             "Mr.  nicci  liu",
             DateTime.Parse("2013-03-25 11:24:05.000"),
             enumPlatFrom.Alibaba,
-            "Cafe Black Durable Porcelain Cup SaucerCafe Black Durable Porcelain Cup Saucer\r");
+            "Cafe Black Durable Porcelain Cup Saucer");
 
             validateOneResult(@"E:\workspace\code\resources\7阿里没产品.eml",
-          "\"alibaba@ntsmart.com\" <alibaba@ntsmart.com>",
+          "alibaba@ntsmart.com",
           "United Kingdom",
           "apex_trade@yahoo.co.uk",
           "Ms.  Audrey  Sinclair",
@@ -38,7 +38,7 @@ namespace EETest
           string.Empty);
 
             validateOneResult(@"E:\workspace\code\resources\中国制造有产品.eml",
-          "\"vanco@ntsmart.com\" <vanco@ntsmart.com>",
+          "vanco@ntsmart.com",
           "United States",
           "nklansek@me.com",
           "Mr. Niko Klansek",
@@ -49,23 +49,33 @@ namespace EETest
             产品名称之后 没有跟着回车
              */
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[dg4@dg4.com.br]What is the MOQ.eml",
-         "\"vincent@ntsmart.com\" <vincent@ntsmart.com>",
+         "vincent@ntsmart.com",
          "Brazil",
          "dg4@dg4.com.br",
          "Mr.  Leonardo  Barbosa",
          DateTime.Parse("2013-03-21 09:07:03"),
          enumPlatFrom.Alibaba,
-        "Synthetic rattan home furnitureRattan home furniture");
+        "Synthetic rattan home furniture");
 
             /*产品名称里面包含数字1*/
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[9166853@qq.com]pls quote best price for the hotel safe.eml",
-        "\"vanco@ntsmart.com\" <vanco@ntsmart.com>",
+        "vanco@ntsmart.com",
         "China (Mainland)",
         "9166853@qq.com",
         "Mr.  Daniel  Liu",
         DateTime.Parse("2013-03-23 13:09:04"),
         enumPlatFrom.Alibaba,
-       "2012 new mechanical cheap hotel safe hotel safe");
+       "2012 new mechanical cheap hotel safe");
+
+            /*客户邮件地址后面有[Unverified Email]*/
+            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[manager assigned] [hossenoomur@hotmail.com]Inquiry about Guangzhou Nantian Sources Co., Ltd..eml",
+        "vanco@ntsmart.com",
+        "Mauritius",
+        "hossenoomur@hotmail.com",
+        "Mr.  Mohammad hossen  OOMUR",
+        DateTime.Parse("2013-03-18 15:12:35.000"),
+        enumPlatFrom.Alibaba,
+       "");
 
 
            new ExtractService().SaveResultList(resultList);

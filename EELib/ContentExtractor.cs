@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using EEModel;
 using EEPersistant;
+using System.Text.RegularExpressions;
 namespace EEBiz
 {
     /// <summary>
@@ -31,8 +32,12 @@ namespace EEBiz
 
             EEEmailMessage emlMsg = parser.Parse(emlFilePath);
             resultObject.InquiryTime = emlMsg.ReceivedTime;
+            resultObject.EmailFileName = System.IO.Path.GetFileName(emlFilePath);
             resultObject.EmailTitle = emlMsg.Subject;
-            resultObject.ClerkName = emlMsg.To.Split(',')[0];//取第一个邮箱
+            string emailRegex = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Match firstMatch = Regex.Match(emlMsg.To, emailRegex);
+
+            resultObject.ClerkName = firstMatch.Value;//取第一个邮箱
             enumPlatFrom platfrom = enumPlatFrom.MadeInChina;
             if (emlMsg.From.ToLower().Contains("alibaba"))
             {
@@ -45,6 +50,7 @@ namespace EEBiz
             //EELog.EELogger.Debug("开始保存");
            
         }
+       
 
        
     }

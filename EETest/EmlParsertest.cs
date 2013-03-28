@@ -40,13 +40,13 @@ namespace EETest
         [Test]
         public void SasaParserTest()
         {
-            EEEmailMessage msgSasaParser1 = new Sasaparser().Parse(@"E:\workspace\code\resources\7阿里有产品.eml");
+          //  EEEmailMessage msgSasaParser1 = new Sasaparser().Parse(@"E:\workspace\code\resources\7阿里有产品.eml");
 
         }
         [Test]
         public void MIMERParserTest()
         {
-            EEEmailMessage msgSasaParser1 = new MIMECompliantParser().Parse(@"E:\workspace\code\resources\7阿里有产品.eml");
+           // EEEmailMessage msgSasaParser1 = new MIMECompliantParser().Parse(@"E:\workspace\code\resources\7阿里有产品.eml");
 
         }
     }

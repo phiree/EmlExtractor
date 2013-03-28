@@ -22,7 +22,7 @@ namespace EEBiz
         public  string ExtractProductName()
         {
 
-            string regex = @"(?<=I'm interested in your product\(s\)).+?(?=\n?1\.)";
+            string regex = @"(?<=I'm interested in your product\(s\)).+?(?=%#%)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
             return m.Value;
@@ -47,10 +47,11 @@ namespace EEBiz
 
         public  string ExtractCustomEmail()
         {
-            string regex = @"(?<=Verified Email:).+?(?=TEL:)";
+            string regex = @"(?<=Email:)\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*(?=\s*?(.+\[Unverified Email\])?TEL:)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
-            return m.Value;
+
+            return m.Groups[0].Value;
 
         }
     }
@@ -66,7 +67,7 @@ namespace EEBiz
         public string ExtractProductName()
         {
 
-            string regex = @"(?<=Inquired Product).+?(?=Message Basics)";
+            string regex = @"(?<=Inquired Product%#%).+?(?=Message Basics)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
             return m.Value;
