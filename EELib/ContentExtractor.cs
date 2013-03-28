@@ -37,7 +37,7 @@ namespace EEBiz
             string emailRegex = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
             Match firstMatch = Regex.Match(emlMsg.To, emailRegex);
 
-            resultObject.ClerkName = firstMatch.Value;//取第一个邮箱
+            resultObject.ClerkName = firstMatch.Value.Replace("@ntsmart.com",string.Empty);//取第一个邮箱
             enumPlatFrom platfrom = enumPlatFrom.MadeInChina;
             if (emlMsg.From.ToLower().Contains("alibaba"))
             {

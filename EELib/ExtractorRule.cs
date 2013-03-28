@@ -67,10 +67,10 @@ namespace EEBiz
         public string ExtractProductName()
         {
 
-            string regex = @"(?<=Inquired Product%#%).+?(?=Message Basics)";
+            string regex = @"(?<=Inquired\s+(Product|Offer)(%#%)?).+(?=Message Basics)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
-            return m.Value;
+            return m.Value.Replace("%#%",string.Empty) ;
         }
 
 
@@ -84,7 +84,7 @@ namespace EEBiz
 
         public string ExtractCustomCountry()
         {
-            string regex = @"(?<=Country/Region).+?(?=Sender's IP)";
+            string regex = @"(?<=Country/Region).+?(?=(Sender's IP|Homepage))";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
             return m.Value;

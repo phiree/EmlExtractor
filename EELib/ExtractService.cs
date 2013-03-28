@@ -9,8 +9,17 @@ namespace EEBiz
 {
     public class ExtractService
     {
-         IPersistent  persistent = new SqlitePersistent();
-        public  void ExtractFromFolder(string folderPath)
+        IPersistent persistent = new SqlitePersistent();
+        
+        public void ExtractFromFolder(string folderPath)
+        {
+       //     IBindingList<string> tt;
+           IList<ExtractorResultObject> resultList = GetListFromFolder(folderPath);
+            SaveResultList(resultList);
+        }
+       
+        //分析文件夹内的eml文件,生成result列表
+        public IList<ExtractorResultObject> GetListFromFolder(string folderPath)
         {
             DirectoryInfo di = new DirectoryInfo(folderPath);
             IList<ExtractorResultObject> resultList = new List<ExtractorResultObject>();
@@ -22,9 +31,10 @@ namespace EEBiz
                 ce.ExtractInfo();
                 resultList.Add(ce.ResultObject);
             }
-            SaveResultList(resultList);
+            return resultList;
         }
-       public   void SaveResultList(IList<ExtractorResultObject> resultList)
+        //保存分析结果到数据库
+        public void SaveResultList(IList<ExtractorResultObject> resultList)
         {
             IList<ExtractorResultObject> existsList = new List<ExtractorResultObject>();
             IList<ExtractorResultObject> removeExistsList =
@@ -36,10 +46,10 @@ namespace EEBiz
             persistent.SaveBatch(removeExistsList);
         }
 
-       public IList<ExtractorResultObject> GetList(DateTime begin, DateTime end)
-       {
-           return persistent.GetList(begin, end);
-       }
-      
+        public IList<ExtractorResultObject> GetList(DateTime begin, DateTime end)
+        {
+            return persistent.GetList(begin, end);
+        }
+
     }
 }

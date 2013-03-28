@@ -100,6 +100,15 @@
     <None Include="config\connectionStrings.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestResource\Notification_ Business Message from Miss Sofia.eml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResource\Notification_ Business Message from Mr. Amer Shahzad.eml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResource\Notification_ Business Message from Mr. Mathew Oluwasegun Adeniyi.eml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestResource\[9166853%40qq.com]pls quote best price for the hotel safe.eml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

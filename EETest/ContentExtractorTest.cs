@@ -18,9 +18,40 @@ namespace EETest
         public void ExtractorInfoTest()
         {
             new EESetUp().SetUp();
-            
+
+//            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Mr. Mathew Oluwasegun Adeniyi.eml",
+//"vanco",
+//"Nigeria",
+//"semadexcom@yahoo.com",
+//"Mr. Mathew Oluwasegun Adeniyi",
+//DateTime.Parse("2013-03-13 10:38:03.000"),
+//enumPlatFrom.MadeInChina,
+//"Cotton Hotel Bath Towel Set (N000020820/N000020821)");
+            /*
+             InquiryProduct 后面没有 %#%
+             */
+            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Mr. Amer Shahzad.eml",
+"vanco",
+"Pakistan",
+"mespinner93@gmail.com",
+"Mr. Amer Shahzad",
+DateTime.Parse("2013-03-24 12:09:03.000"),
+enumPlatFrom.MadeInChina,
+"Cotton Hotel Bath Towel Set (N000020820/N000020821)");
+
+            /*made in china  产品名称前是 offer 或者 product*/
+
+            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Miss Sofia.eml",
+"vivi",
+"Singapore",
+"sofia_yusof@hotmail.com",
+"Miss Sofia",
+DateTime.Parse("2013-03-22 13:54:58.000"),
+enumPlatFrom.MadeInChina,
+"Chocolate Fountain (CP-60)");
+
             validateOneResult(@"E:\workspace\code\resources\7阿里有产品.eml",
-            "vivi@ntsmart.com",
+            "vivi",
             "China (Mainland)",
             "nicci20121118@gmail.com",
             "Mr.  nicci  liu",
@@ -29,7 +60,7 @@ namespace EETest
             "Cafe Black Durable Porcelain Cup Saucer");
 
             validateOneResult(@"E:\workspace\code\resources\7阿里没产品.eml",
-          "alibaba@ntsmart.com",
+          "alibaba",
           "United Kingdom",
           "apex_trade@yahoo.co.uk",
           "Ms.  Audrey  Sinclair",
@@ -38,7 +69,7 @@ namespace EETest
           string.Empty);
 
             validateOneResult(@"E:\workspace\code\resources\中国制造有产品.eml",
-          "vanco@ntsmart.com",
+          "vanco",
           "United States",
           "nklansek@me.com",
           "Mr. Niko Klansek",
@@ -49,7 +80,7 @@ namespace EETest
             产品名称之后 没有跟着回车
              */
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[dg4@dg4.com.br]What is the MOQ.eml",
-         "vincent@ntsmart.com",
+         "vincent",
          "Brazil",
          "dg4@dg4.com.br",
          "Mr.  Leonardo  Barbosa",
@@ -59,7 +90,7 @@ namespace EETest
 
             /*产品名称里面包含数字1*/
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[9166853@qq.com]pls quote best price for the hotel safe.eml",
-        "vanco@ntsmart.com",
+        "vanco",
         "China (Mainland)",
         "9166853@qq.com",
         "Mr.  Daniel  Liu",
@@ -69,7 +100,7 @@ namespace EETest
 
             /*客户邮件地址后面有[Unverified Email]*/
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[manager assigned] [hossenoomur@hotmail.com]Inquiry about Guangzhou Nantian Sources Co., Ltd..eml",
-        "vanco@ntsmart.com",
+        "vanco",
         "Mauritius",
         "hossenoomur@hotmail.com",
         "Mr.  Mohammad hossen  OOMUR",
@@ -77,6 +108,7 @@ namespace EETest
         enumPlatFrom.Alibaba,
        "");
 
+    
 
            new ExtractService().SaveResultList(resultList);
         }
