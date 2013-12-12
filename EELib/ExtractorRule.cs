@@ -24,14 +24,24 @@ namespace EEBiz
 
             string regex = @"(?<=I'm interested in your product\(s\)).+?(?=%#%)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
-            if (!m.Success) { return string.Empty; }
+            if (!m.Success) {
+                string regexLookingFor = @"(?<=looking\s+for).+?(?=,)";
+                m = Regex.Match(content, regexLookingFor, RegexOptions.Singleline);
+                if (m.Success)
+                {
+                    return "(Likely)" + m.Value;
+                }
+                else
+                    return string.Empty;
+            }
+            
             return m.Value;
         }
 
 
         public  string ExtractCustomName()
         {
-            string regex = @"(?<=View detail).+(?=Company:)";
+            string regex = @"(?<=View (more--\>|detail)).+(?=Company:)";
             Match m = Regex.Match(content, regex, RegexOptions.Singleline);
             if (!m.Success) { return string.Empty; }
             return m.Value;

@@ -18,8 +18,38 @@ namespace EETest
         public void ExtractorInfoTest()
         {
             new EESetUp().SetUp();
+            /*
+             ---------------找不到对应的测试邮件了------------
+           
+            validateOneResult(@"E:\workspace\code\resources\7阿里有产品.eml",
+        "vivi",
+        "China (Mainland)",
+        "nicci20121118@gmail.com",
+        "Mr.  nicci  liu",
+        DateTime.Parse("2013-03-25 11:24:05.000"),
+        enumPlatFrom.Alibaba,
+        "Cafe Black Durable Porcelain Cup Saucer");
 
-//            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Mr. Mathew Oluwasegun Adeniyi.eml",
+            validateOneResult(@"E:\workspace\code\resources\7阿里没产品.eml",
+          "alibaba",
+          "United Kingdom",
+          "apex_trade@yahoo.co.uk",
+          "Ms.  Audrey  Sinclair",
+          DateTime.Parse("2013-03-23 21:12:58.000"),
+          enumPlatFrom.Alibaba,
+          string.Empty);
+
+            validateOneResult(@"E:\workspace\code\resources\中国制造有产品.eml",
+          "vanco",
+          "United States",
+          "nklansek@me.com",
+          "Mr. Niko Klansek",
+          DateTime.Parse("2013-03-18 21:21:53.000"),
+          enumPlatFrom.MadeInChina,
+         "Cotton Hotel Bath Towel Set (N000020820/N000020821)");
+              
+             * */
+            //            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Mr. Mathew Oluwasegun Adeniyi.eml",
 //"vanco",
 //"Nigeria",
 //"semadexcom@yahoo.com",
@@ -39,6 +69,7 @@ DateTime.Parse("2013-03-24 12:09:03.000"),
 enumPlatFrom.MadeInChina,
 "Cotton Hotel Bath Towel Set (N000020820/N000020821)");
 
+
             /*made in china  产品名称前是 offer 或者 product*/
 
             validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\Notification_ Business Message from Miss Sofia.eml",
@@ -50,32 +81,7 @@ DateTime.Parse("2013-03-22 13:54:58.000"),
 enumPlatFrom.MadeInChina,
 "Chocolate Fountain (CP-60)");
 
-            validateOneResult(@"E:\workspace\code\resources\7阿里有产品.eml",
-            "vivi",
-            "China (Mainland)",
-            "nicci20121118@gmail.com",
-            "Mr.  nicci  liu",
-            DateTime.Parse("2013-03-25 11:24:05.000"),
-            enumPlatFrom.Alibaba,
-            "Cafe Black Durable Porcelain Cup Saucer");
-
-            validateOneResult(@"E:\workspace\code\resources\7阿里没产品.eml",
-          "alibaba",
-          "United Kingdom",
-          "apex_trade@yahoo.co.uk",
-          "Ms.  Audrey  Sinclair",
-          DateTime.Parse("2013-03-23 21:12:58.000"),
-          enumPlatFrom.Alibaba,
-          string.Empty);
-
-            validateOneResult(@"E:\workspace\code\resources\中国制造有产品.eml",
-          "vanco",
-          "United States",
-          "nklansek@me.com",
-          "Mr. Niko Klansek",
-          DateTime.Parse("2013-03-18 21:21:53.000"),
-          enumPlatFrom.MadeInChina,
-         "Cotton Hotel Bath Towel Set (N000020820/N000020821)");
+        
             /*
             产品名称之后 没有跟着回车
              */
@@ -108,7 +114,25 @@ enumPlatFrom.MadeInChina,
         enumPlatFrom.Alibaba,
        "");
 
-    
+            /*kalina 2013-12-10 alibaba改版 客户名片栏目 view detail 改为 view more-->.*/
+            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[san@upowercorp.com]ask for quote.eml",
+                   "service",
+                   "Hong Kong",
+                   "san@upowercorp.com",
+                   "Ms.  San  Koo",
+                   DateTime.Parse("2013-12-02 12:35:54"),
+                   enumPlatFrom.Alibaba,
+                  "(Likely) a TROUSER HANGER &amp; JACKET HANGER for export to ");
+            //没有获取到产品信息
+            validateOneResult(AppDomain.CurrentDomain.BaseDirectory + @"\TestResource\[jamesyeunghh_lfsourcing@hotmail.com]Inquiry about Guangzhou Nantian Sources Co., Ltd..eml",
+                 "service",
+                 "Hong Kong",
+                 "san@upowercorp.com",
+                 "Ms.  San  Koo",
+                 DateTime.Parse("2013-12-02 12:35:54"),
+                 enumPlatFrom.Alibaba,
+                "(Likely) a TROUSER HANGER &amp; JACKET HANGER for export to ");
+
 
            new ExtractService().SaveResultList(resultList);
         }
